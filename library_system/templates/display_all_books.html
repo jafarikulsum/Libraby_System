@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Books</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="x_container">
+        <h1>All Books</h1>
+            <div class="books">
+                {% for item in items %}
+                    {{ item | safe }}
+                {% endfor %}
+            </div>
+            <a href="{{ url_for('admin_menu') }}">Back to Admin Menu</a>
+        </div>
+</body>
+</html>

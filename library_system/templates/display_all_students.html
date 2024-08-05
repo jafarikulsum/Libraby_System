@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display All Students</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="x_container">
+        <h1>All Students</h1>
+        {% if students %}
+            <ul>
+                {% for student in students %}
+                    <li>
+                        <div class="student">
+                            <h3>Student name: {{ student.name }}</h3>
+                            <p>Student roll number: {{ student.enroll_no }}</p>
+                            <p>Class: {{ student.cls }}</p>
+                            <p>No of books issued: {{ student.books_issued }}</p>
+                            <p>Date of issue: {{ student.date_of_issue }}</p>
+                            <p>Date of return: {{ student.date_of_return }}</p>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No students found.</p>
+        {% endif %}
+        <a href="{{ url_for('admin_menu') }}" class="btn">Back to Admin Menu</a>
+    </div>
+</body>
+</html>

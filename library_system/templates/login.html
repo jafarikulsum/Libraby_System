@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            background-image: url('/static/css/login-backgound.jpg'); /* Correct relative path */
+            background-size: cover; /* Ensures the image covers the entire background */
+            background-position: center; /* Centers the image */
+            background-repeat: no-repeat; /* Prevents the image from repeating */
+            height: 100vh; /* Ensures the body takes the full height of the viewport */
+            margin: 0; /* Removes default margin */
+            display: flex; /* Use flexbox for centering */
+            justify-content: center; /* Centers content horizontally */
+            align-items: center; /* Centers content vertically */
+        }
+
+        div {
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background for the login form */
+            border-radius: 10px; /* Rounded corners */
+            padding: 20px; /* Space inside the form */
+            max-width: 400px; /* Maximum width of the form */
+            width: 100%; /* Ensure form takes the full width up to the max-width */
+            text-align: center; /* Center the text */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        }
+
+        form {
+            display: flex; /* Use flexbox for the form elements */
+            flex-direction: column; /* Arrange elements in a column */
+            align-items: center; /* Center the form elements */
+        }
+
+        .form-group {
+            display: flex; /* Use flexbox to align label and input side by side */
+            justify-content: space-between; /* Space between the label and input */
+            align-items: center; /* Align items vertically centered */
+            width: 100%; /* Full width of the form */
+            max-width: 300px; /* Maximum width of the form group */
+            margin: 10px 0; /* Margin for spacing between form groups */
+        }
+
+        label {
+            flex: 1; /* Label takes up 1 part of the space */
+            text-align: left; /* Align label text to the left */
+        }
+
+        input {
+            flex: 2; /* Input takes up 2 parts of the space */
+            margin-left: 10px; /* Space between label and input */
+        }
+
+        input[type="submit"] {
+            width: auto; /* Submit button width based on its content */
+            margin-top: 20px; /* Space above the submit button */
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h2>Please login to Library Management System</h2>
+        <form action="/login" method="post">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <input type="submit" value="Login" class="btn btn-primary btn-lg btn-block">
+        </form>
+        {% if error %}
+        <p class="error">{{ error }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>

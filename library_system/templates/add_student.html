@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Student</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="content-box">
+            <h1>Add Student</h1>
+            <form action="{{ url_for('add_student') }}" method="POST">
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name" required><br><br>
+                <label for="enroll_no">Enrollment Number:</label><br>
+                <input type="number" id="enroll_no" name="enroll_no" required><br><br>
+                <label for="class">Class:</label><br>
+                <input type="text" id="class" name="class" required><br><br>
+                <label for="books_issued">Number of Books Issued:</label><br>
+                <input type="number" id="books_issued" name="books_issued" value="0" required><br><br>
+                <label for="date_of_issue">Date of Issue:</label><br>
+                <input type="date" id="date_of_issue" name="date_of_issue"><br><br>
+                <label for="date_of_return">Date of Return:</label><br>
+                <input type="date" id="date_of_return" name="date_of_return"><br><br>
+                <input type="submit" value="Submit" class="btn-success">
+            </form>
+            <a href="{{ url_for('admin_menu') }}" class="btn">Back to Admin Menu</a>
+        </div>
+    </div>
+</body>
+</html>
